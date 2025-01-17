@@ -88,7 +88,6 @@ export class HolidayCalenderComponent {
       .subscribe({
         next: (holidays) => {
           this.currentHolidays.set(holidays);
-          console.log('Holidays:', holidays);
           const events: EventInput[] = holidays.map((holiday) => {
             const [month, day, year] = holiday.date.split('/');
             const formattedDate = `${year}-${month.padStart(
@@ -108,7 +107,6 @@ export class HolidayCalenderComponent {
           });
 
           this.calendarOptions.events = events;
-          console.log('events', events);
           this.isLoading.set(false);
         },
         error: (err) => {
