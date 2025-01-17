@@ -53,7 +53,7 @@ export class HolidayCalenderComponent {
     return country ? country.name : this.selectedCountry();
   });
 
-  calendarOptions: CalendarOptions = {
+  protected calendarOptions: CalendarOptions = {
     plugins: [dayGridPlugin, interactionPlugin],
     initialView: 'dayGridMonth',
     events: [],
@@ -89,16 +89,23 @@ export class HolidayCalenderComponent {
         next: (holidays) => {
           this.currentHolidays.set(holidays);
           console.log('Holidays:', holidays);
-          const events: EventInput[] = holidays.map((holiday) => ({
-            title: holiday.name,
-            date: holiday.date,
-            allDay: true,
-            backgroundColor: '#3b82f6',
-            borderColor: '#3b82f6',
-            extendedProps: {
-              description: holiday.description,
-            },
-          }));
+          const events: EventInput[] = holidays.map((holiday) => {
+            const [month, day, year] = holiday.date.split('/');
+            const formattedDate = `${year}-${month.padStart(
+              2,
+              '0'
+            )}-${day.padStart(2, '0')}`;
+            return {
+              title: holiday.name,
+              date: formattedDate,
+              allDay: true,
+              backgroundColor: '#3b82f6',
+              borderColor: '#3b82f6',
+              extendedProps: {
+                description: holiday.description,
+              },
+            };
+          });
 
           this.calendarOptions.events = events;
           console.log('events', events);
