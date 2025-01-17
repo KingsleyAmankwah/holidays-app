@@ -1,0 +1,32 @@
+:host {
+  display: block;
+  background-color: #f5f7fa;
+  min-height: 100vh;
+  padding: 2rem 0;
+}
+
+.holiday-calendar {
+  height: 600px;
+}
+
+::ng-deep .fc {
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+::ng-deep .fc-toolbar-title {
+  font-size: 1.5rem !important;
+  font-weight: 600;
+  color: #1a365d;
+}
+
+::ng-deep .fc-button-primary {
+  background-color: #3b82f6 !important;
+  border-color: #3b82f6 !important;
+  text-transform: capitalize;
+  font-weight: 500;
+}
+
+::ng-deep .fc-daygrid-event {
+  border-radius: 4px;
+  padding: 2px 4px;
+}

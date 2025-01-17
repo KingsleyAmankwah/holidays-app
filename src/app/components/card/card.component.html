@@ -1,0 +1,27 @@
+<div class="p-4">
+  <button
+    (click)="testApi()"
+    class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+  >
+    Test Holiday API
+  </button>
+
+  @if (loading) {
+  <div class="mt-4">Loading...</div>
+  } @if (error) {
+  <div class="mt-4 text-red-500">{{ error }}</div>
+  } @if (holidays.length > 0) {
+  <div class="mt-4">
+    @for (holiday of holidays; track holiday.name) {
+    <div class="bg-white shadow rounded p-4 mb-4">
+      <h3 class="font-bold">{{ holiday.name }}</h3>
+      <p>Date: {{ holiday.date }}</p>
+      <p>Type: {{ holiday.type }}</p>
+      @if (holiday.description) {
+      <p class="mt-2">{{ holiday.description }}</p>
+      }
+    </div>
+    }
+  </div>
+  }
+</div>
