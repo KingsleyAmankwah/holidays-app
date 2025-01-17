@@ -35,7 +35,7 @@ export class HolidayCalenderComponent {
         this.loadHolidays(
           today.getFullYear(),
           today.getMonth() + 1,
-          today.getDay() + 1
+          today.getDate()
         );
       },
       {
