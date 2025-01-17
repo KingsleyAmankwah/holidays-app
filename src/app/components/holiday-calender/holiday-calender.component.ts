@@ -58,7 +58,7 @@ export class HolidayCalenderComponent {
     initialView: 'dayGridMonth',
     events: [],
     headerToolbar: {
-      left: 'prev,next today',
+      left: 'prev,next',
       center: 'title',
       right: 'dayGridMonth,dayGridWeek',
     },
